@@ -1,0 +1,41 @@
+Form{
+    text-align: center;
+    padding: 10px;
+}
+
+Form Label {
+    display: block;
+    padding: 4px;
+    height: 30px;
+    font-size: 18px;
+    color: black;
+}
+Form Input{
+    background-color: azure;
+    border-radius: 3px;
+    transition: 0.2s;
+    width: 30%;
+    height: 30px;
+    color: black;
+}
+Form Input:hover{
+    background-color: azure;
+    color: gray;
+    
+}
+Form Button{
+    width: 30%;
+    padding: 5px;
+    margin-top: 2px;
+    color: black;
+    background-color: rgb(196, 122, 196);
+    transform: 0.2s;
+    border-radius: 3px;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+Form Button:hover{
+    background-color: white;
+    color: black;
+}
