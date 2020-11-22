@@ -1,102 +1,98 @@
-import Recat, { Component } from 'react';
+import React, {  useState } from 'react';
 
-import Hearder from "./../components/Header";
+import Hearder from "../components/Header";
 
-import "./login.css";
-
-import { Form , FormGroup , Input , Label , Button , Alert} from "reactstrap";
-
+import api from "../axios/api";
+import "./index.css";
 
 
-export default class Login extends Component {
 
-    constructor(){
-       super()
-       this.state = {
-           message: '',
-       }
-    }
 
-    singIn = () => {
+export default function Create(){
 
-        const data =  {nome : this.nome, email : this.email, password : this.password,
-                      cpf : this.cpf,numeroConta : this.numeroConta, saldo : this.saldo, 
-                      location : this.location, phone : this.phone}
+    
+const [nome,setNome] = useState("");
+const [email,setEmail] = useState("");
+const [password,setPassword] = useState("");
+const [cpf,setCpf] = useState("");
+const [number_account,setNumber_account] = useState("");
+const [saldo,setSaldo] = useState();
+const [location,setLocation] = useState("");
+const [phone,setPhone] = useState("");
 
-        console.log(data);
+var config = {
+    headers: {'X-My-Custom-Header': 'Header-Value'}
+  };
 
-        const requestInfo = {
-            method:'POST',
-            body: JSON.stringify({}),
-            headers: new Headers({
-                'content-Type': 'application/json'
-            })
-        };
+    
+async function renderSubmit(e){
+    e.preventDefault();
 
-        fetch('http://127.0.0.1:8000/create',requestInfo)
-        .then(response => {
-            if(response.ok)
-            {
-                console.log(response.data);
-                return response.json(data);
-            }
+    const resnponse = await api.post('/create',{
+        name:nome,
+        email:email,
+        password:password,
+        cpf:cpf,
+        number_account:number_account,
+        balance:saldo,
+        location:location,
+        phone:phone
+    },config)
+    
+}
+        
 
-            throw new Error("invalid")
-        })
-        .then(token => console.log(token))
-        .catch(e => console.log(e));
-    }
-
-    render(){
+    
         return(
           <div className="col-md-6">
              <Hearder title="cadastro " />
+              {
+                 // Alert(list())
+              }
+              <form onSubmit={renderSubmit}>
+                  
+                      <label for="nome">nome</label>
+                      <input id="nome" type="text"
+                      placeholder="informe seu nome" required
+                      value={nome} onChange={e => setNome(e.target.value)}/>
               
-              <Form>
-                  <FormGroup>
-                      <Label for="nome">nome</Label>
-                      <Input type="text" id="nome"
-                      onChange={e => this.nome = e.target.value} placeholder="informe seu nome" required/>
-                  </FormGroup>
-                  <FormGroup>
-                      <Label for="email">email</Label>
-                      <Input type="email" id="email" 
-                      onChange={e => this.email = e.target.value} placeholder="informe seu email" required />
-                  </FormGroup>
-                  <FormGroup>
-                      <Label for="password">senha</Label>
-                      <Input type="password" id="password"
-                      onChange={e => this.password = e.target.value} placeholder="informe sua senha" required />
-                  </FormGroup>
-                  <FormGroup>
-                      <Label for="cpf">cpf</Label>
-                      <Input type="text" id="cpf"
-                      onChange={e => this.cpf = e.target.value} placeholder="informe seu cpf" required/>
-                  </FormGroup>
-                  <FormGroup>
-                      <Label for="numero da conta">numero da conta</Label>
-                      <Input type="text" id="numeroConta"
-                      onChange={e => this.numeroConta = e.target.value} placeholder="informe seu numero da conta" required />
-                  </FormGroup>
-                  <FormGroup>
-                      <Label for="saldo">saldo</Label>
-                      <Input type="number" id="saldo"
-                      onChange={e => this.saldo = e.target.value} placeholder="informe seu saldo" step="any" required />
-                  </FormGroup>
-                  <FormGroup>
-                      <Label for="location">localização</Label>
-                      <Input type="text" id="location"
-                      onChange={e => this.location = e.target.value} placeholder="informe seu localização" required/>
-                  </FormGroup>
-                  <FormGroup>
-                      <Label for="phone">telefone</Label>
-                      <Input type="phone" id="phone"
-                      onChange={e => this.phone = e.target.value} placeholder="informe seu telefone" required/>
-                  </FormGroup>
-                 <Button onClick={this.singIn}>cadastrar</Button>
-              </Form>
+                  
+                      <label for="email">email</label>
+                      <input id="email" type="email"
+                      placeholder="informe seu email" required 
+                      value={email} onChange={e => setEmail(e.target.value)}/>
+                  
+                      <label for="password">senha</label>
+                      <input id="password" type="password"
+                      value={password} onChange={e => setPassword(e.target.value)} placeholder="informe sua senha" required />
+                  
+                      <label for="cpf">cpf</label>
+                      <input id="cpf" type="text"
+                      placeholder="informe seu cpf" required
+                      value={cpf} onChange={e => setCpf(e.target.value)} />
+                  
+                      <label for="numero da conta">numero da conta</label>
+                      <input id="numeroConta" type="text"
+                       placeholder="informe seu numero da conta" required 
+                       value={number_account} onChange={e => setNumber_account(e.target.value)}/>
+                  
+                      <label for="saldo">saldo</label>
+                      <input id="saldo" type="number"
+                      value={saldo} onChange={e => setSaldo(e.target.value)} placeholder="informe seu saldo" step="any" required />
+                  
+                      <label for="location">localização</label>
+                      <input id="location" type="text"
+                       placeholder="informe seu localização" required
+                       value={location} onChange={e => setLocation(e.target.value)}/>
+                  
+                      <label for="phone">telefone</label>
+                      <input  id="phone" type="text"
+                     placeholder="informe seu telefone" required
+                     value={phone} onChange={e => setPhone(e.target.value)} />
+                 <button type="submit">cadastrar</button>
+              </form>
           </div>
         )
-      }
+      
 
 }

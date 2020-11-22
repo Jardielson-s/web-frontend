@@ -1,0 +1,27 @@
+div ul {
+    background-color: azure;
+    width: 100%;
+    height: 40%;
+    padding: 20px;
+    display: inline-block;
+    list-style-type:none;
+    text-align: center;
+}
+
+div ul li{
+    padding: 20px;
+    padding-left: 5px;
+    display: block;
+}
+fieldset{
+    padding: 10px;
+}
+.li-ph-lo{
+    padding: 10px;
+    width: 90%;
+}
+
+div ul li strong{
+    padding: 10px;
+    display: inline-block;
+}

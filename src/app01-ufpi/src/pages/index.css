@@ -1,16 +1,16 @@
-Form{
+form{
     text-align: center;
     padding: 10px;
 }
 
-Form Label {
+form label {
     display: block;
     padding: 4px;
     height: 30px;
     font-size: 18px;
     color: black;
 }
-Form Input{
+form input{
     background-color: azure;
     border-radius: 3px;
     transition: 0.2s;
@@ -18,12 +18,14 @@ Form Input{
     height: 30px;
     color: black;
 }
-Form Input:hover{
+form input:hover{
     background-color: azure;
     color: gray;
     
 }
-Form Button{
+form button{
+    position: relative;
+    display: block;
     width: 30%;
     padding: 5px;
     margin-top: 2px;
@@ -33,9 +35,10 @@ Form Button{
     border-radius: 3px;
     margin-top: 15px;
     font-size: 18px;
+    left: 35%;
 }
 
-Form Button:hover{
+form button:hover{
     background-color: white;
     color: black;
 }

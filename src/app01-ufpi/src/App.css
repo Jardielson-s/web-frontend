@@ -1,5 +1,82 @@
 .App {
   text-align: center;
   margin: 0;
+  background-color: black;
+  height: 990px;
+}
+
+
+header{
+  background-color: azure;
+  
+  height:65px;
+  
+}
+
+link{
+  position: relative;
+  padding: 5px;
+  left: 38%;
+  margin-top: 35px;
+  border-radius: 3px;
+  color: black;
+  background-color: rgb(196, 122, 196);
+}
+
+button{
+  position: relative;
+  padding: 5px;
+  left: 38%;
+  margin-top: 35px;
+  border-radius: 3px;
+  color: black;
+  background-color: rgb(196, 122, 196);
+}
+
+button:hover{
+  background-color: white;
+  color: black;
+}
+
+label{
+  position: relative;
+  right: 35%;
+  color: purple;
+}
+p{
+  position: relative;
+  display: block;
+  color: purple;
+  margin-top: 35px;
+  font-size: 20px;
+}
+.content{
+  position: relative;
+  left: 50%;
+  width: 50%;
+  margin-top: 200px;
+}
+
+img{
+  position: relative;
+  width: 30%;
+  border-radius: 5px;
+  height: 30%;
+  display: block;
+  left: 10%;
+  transition: 0.4s;
+  top: -70px;
+  padding: 10px;
+}
+img:hover{
+  height: 40%;
+  width: 40%;
+}
+
+.images{
+  position: relative;
+  
+  padding: 10px;
+  
 }
 

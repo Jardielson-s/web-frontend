@@ -1,0 +1,44 @@
+form{
+    text-align: center;
+    padding: 10px;
+}
+
+form label {
+    display: block;
+    padding: 4px;
+    height: 30px;
+    font-size: 18px;
+    color: black;
+}
+form input{
+    background-color: azure;
+    border-radius: 3px;
+    transition: 0.2s;
+    width: 30%;
+    height: 30px;
+    color: black;
+}
+form input:hover{
+    background-color: azure;
+    color: gray;
+    
+}
+form button{
+    position: relative;
+    display: block;
+    width: 30%;
+    padding: 5px;
+    margin-top: 2px;
+    color: black;
+    background-color: rgb(196, 122, 196);
+    transform: 0.2s;
+    border-radius: 3px;
+    margin-top: 15px;
+    font-size: 18px;
+    left: 35%;
+}
+
+form button:hover{
+    background-color: white;
+    color: black;
+}
